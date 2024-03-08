@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function MyNav() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary" >
+        <Navbar expand="lg" className="bg-body-tertiary shadow sticky-top" >
             <Container>
                 <Navbar.Brand href="#home">StoryForge</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

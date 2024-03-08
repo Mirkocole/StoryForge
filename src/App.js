@@ -20,7 +20,7 @@ const books = {
   scifi : scifiBook,
 }
   return (
-    <div className="bg-dark m-0">
+    <Container fluid className="bg-dark m-0 p-0">
       <MyNav />
       <Welcome />
       <Container className='pb-5'>
@@ -28,7 +28,7 @@ const books = {
       <AllTheBooks books = {books} />
       </Container>
       <Footer />
-    </div>
+    </Container>
   );
 }
 
