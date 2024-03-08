@@ -16,8 +16,8 @@ function Gridcards({count, books}) {
             <h3 className="text-light">Categoria {books[0].category.toUpperCase()}</h3>
                 <Row>
                 {
-                    maxBook.map((ele,index) => {
-                      return <Col key ={index}>
+                    maxBook.map((ele) => {
+                      return <Col key ={ele.asin}>
                                 <Cardbook book={ele}/>
                             </Col>
                         
