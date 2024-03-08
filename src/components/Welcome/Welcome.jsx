@@ -16,7 +16,7 @@ function Welcome() {
     return (
         <>
 
-            {show && <Alert key= 'success' variant='success'>Benvenuto su StoryForge! </Alert>}
+            {show && <Alert key= 'success' variant='success' className='w-75 mx-auto'>Benvenuto su StoryForge! </Alert>}
             {hideMessage()}
         </>
     );

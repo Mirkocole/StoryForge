@@ -20,7 +20,7 @@ const books = {
   scifi : scifiBook,
 }
   return (
-    <Container fluid className="bg-dark m-0 p-0">
+    <Container fluid className="bg-dark m-0 p-0 d-flex flex-column justify-content-center">
       <MyNav />
       <Welcome />
       <Container className='pb-5'>
