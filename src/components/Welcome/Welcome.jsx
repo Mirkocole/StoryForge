@@ -7,9 +7,7 @@ function Welcome() {
 
     function hideMessage(){
         setTimeout(()=>{
-            setShow((prev) => {
-                return prev = false
-            });
+            setShow(false);
         },3000)
     }
 
