@@ -16,8 +16,8 @@ export default function AddComment(props) {
 
     async function addComment() {
 
-        console.log(`comment : ${comment}, rate: ${rate}, elementId: ${bookasin}`);
-        console.log(rate)
+        
+        
         setLoading(true);
         try {
             let res = await fetch(API, {
@@ -31,16 +31,16 @@ export default function AddComment(props) {
 
             });
 
-            console.log(res)
+            
             if (res.ok) {
                 setLoading(false);
                 setResultComment('true');
                 newRefresh();
-                console.log(res);
+                
             } else {
                 setLoading(false);
                 setResultComment('false');
-                console.log(res.status);
+                
             }
 
 
@@ -93,13 +93,13 @@ export default function AddComment(props) {
                         Aggiungi
                     </Button>
                 </Modal.Footer>
-            </Modal>
-            {resultComment === 'ok' && <Alert variant='success'>
+            {resultComment === 'true' && <Alert variant='success'>
                 Commento aggiunto con successo!
             </Alert>}
             {resultComment === 'false' && <Alert variant='danger'>
                 C'è stato un errore nell'aggiunta del commento!
             </Alert>}
+            </Modal>
 
         </>
     )

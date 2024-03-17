@@ -15,7 +15,7 @@ export default function CommentList(props) {
 
     const [list, setList] = useState([]);
     const [loading, setLoading] = useState(false);
-    const { bookasin ,refresh} = props;
+    const { bookasin ,refresh, newRefresh} = props;
 
     useEffect(() => {
 
@@ -53,7 +53,7 @@ export default function CommentList(props) {
                 setLoading(false);
             }
             
-            console.log(list);
+            
         } catch (error) {
             console.error(`${error} status: ${error.status}`);
             setLoading(false);
@@ -72,7 +72,7 @@ export default function CommentList(props) {
             {
                 
                 list.map((ele) => {
-                    return <SingleComment key={ele._id} comm = {ele}/>
+                    return <SingleComment key={ele._id} comm = {ele} newRefresh={newRefresh}/>
                       
                   })
             }

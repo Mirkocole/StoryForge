@@ -1,0 +1,8 @@
+.delete-button{
+    position: absolute;
+    right: 5%;
+    top: 85%;
+    cursor: pointer;
+    font-size: 23px;
+    color: rgb(206, 42, 42);
+}
