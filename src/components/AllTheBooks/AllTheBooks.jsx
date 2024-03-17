@@ -1,11 +1,11 @@
 import { Button, Form, Row,Col } from "react-bootstrap";
 import Gridcards from "../Gridcards/Gridcards";
 import { useState } from "react";
+import FormSearch from "../FormSearch/FormSearch";
 
 
 function AllTheBooks({ books }) {
 
-//    const { fantasy, romance, scifi, history, horror } = books;
 
 const [fantasy,setFantasy] = useState(books.fantasy);
 const [horror,setHorror] = useState(books.horror);
@@ -39,17 +39,7 @@ const [history,setHistory] = useState(books.history);
 
     return (
         <>
-            <Form className="my-5">
-                <h2 className="text-light">Cerca il tuo Libro</h2>
-                <Form.Group as={Row} className="mb-3">
-                    <Col sm="10">
-                        <Form.Control type="text" placeholder="Inserisci il titolo del libro" value={inputSearch} onChange={(e) => handleInputSearch(e.target.value)}/>
-                    </Col>
-                    <Col sm="2">
-                        <Button type="submit" onClick={(e) => handlesubmit(e)}>Cerca</Button>
-                    </Col>
-                </Form.Group>
-            </Form>
+            <FormSearch handlesubmit = {handlesubmit} handleInputSearch = {handleInputSearch} inputSearch = {inputSearch}/>
             <Gridcards count={4} books={fantasy} />
             <Gridcards count={4} books={horror} />
             <Gridcards count={4} books={romance} />

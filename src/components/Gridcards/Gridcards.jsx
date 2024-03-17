@@ -4,7 +4,7 @@ import SingleBook from "../SingleBook/SingleBook";
 function Gridcards({count, books}) {
 
     if (count && books.length > 0) {
-        console.log(books)
+        
         let maxBook  = [];
         if (count === 'full') {
             maxBook  = books;

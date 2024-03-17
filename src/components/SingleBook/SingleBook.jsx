@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
+import CommentArea from '../CommentArea/CommentArea';
 
 function SingleBook({book}) {
-
+    
     const [selected,setSelected] = useState(false);
     const [border,setBorder] = useState('none');
 
@@ -19,7 +20,7 @@ function SingleBook({book}) {
     return ( 
         <>
             <Card style={{ height:'690px' }} className='my-3 border-4' border={selected ? 'danger' : 'none'}>
-                <Card.Img variant="top" src={book.img} style={{height:'380px', objectFit:'contain', objectPosition:'center'}}/>
+                <Card.Img variant="top" src={book.img} style={{height:'380px', objectFit:'contain', objectPosition:'center'}} onClick={hendleSelected}/>
                 <Card.Body className='d-flex flex-column justify-content-between align-items-between'>
                     <Card.Title>{book.title}</Card.Title>
                     <Card.Text className='fw-bolder fs-5'>
@@ -31,6 +32,7 @@ function SingleBook({book}) {
                     <Button variant="primary" onClick={hendleSelected}>Aggiungi al Carrello</Button>
                 </Card.Body>
             </Card>
+            {selected && <CommentArea bookasin = {book.asin}/>}
         </>
      );
 }
