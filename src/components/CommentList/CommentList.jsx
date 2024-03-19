@@ -39,10 +39,10 @@ export default function CommentList(props) {
             if (result.ok) {
                 let json = await result.json();
 
-                if (json.length > 0) {
+                
                     
                     setList(json);
-                }
+                
 
                 
                 setLoading(false);

@@ -1,0 +1,18 @@
+.text-ellipsis {
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
+}
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+  }
+
+  .color-primary{
+    background-color: #7ca1b1;
+  }
+  .color-primary:hover{
+    background-color: #35515d;
+  }

@@ -1,7 +1,11 @@
 import { Col, Container, Row } from "react-bootstrap";
 import SingleBook from "../SingleBook/SingleBook";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContextProvider";
 
 function Gridcards({count, books}) {
+
+    const {theme} = useContext(ThemeContext);
 
     if (count && books.length > 0) {
         
@@ -20,7 +24,7 @@ function Gridcards({count, books}) {
             return ( 
                 <>
                     <Container className="my-5">
-                    <h3 className="text-light">Categoria {books[0].category.toUpperCase()}</h3>
+                    <h3 className={`text-${theme === 'dark' ? 'light' : 'dark'}`}>Categoria {books[0].category.toUpperCase()}</h3>
                         <Row xs={1} md={3} lg={count}>
                         {
                            maxBook.map((ele) => {
