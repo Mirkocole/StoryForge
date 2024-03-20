@@ -83,10 +83,10 @@ export default function EditComment(props) {
                     </Button>
                 </Modal.Footer>
                 {resultComment === 'true' && <Alert variant='success'>
-                    Commento aggiunto con successo!
+                    Commento modificato con successo!
                 </Alert>}
                 {resultComment === 'false' && <Alert variant='danger'>
-                    C'è stato un errore nell'aggiunta del commento!
+                    C'è stato un errore nella modifica del commento!
                 </Alert>}
             </Modal>
         </>
