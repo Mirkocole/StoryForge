@@ -50,7 +50,7 @@ export default function EditComment(props) {
         <>
             <Modal show={edit} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Edit Comment</Modal.Title>
+                    <Modal.Title>Modifica Commento</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Modal.Body>
