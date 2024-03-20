@@ -77,7 +77,7 @@ export default function AddComment(props) {
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Valutazione</Form.Label>
-                            <Form.Control type="number" min={0} max={5} step={1} placeholder="min 0 - max 5" value={rate} onChange={(e) => setRate(e.target.value)} />
+                            <Form.Control type="number" min={1} max={5} step={1} placeholder="min 1 - max 5" maxLength={1} value={rate} onChange={(e) => setRate(e.target.value)} />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Comment</Form.Label>

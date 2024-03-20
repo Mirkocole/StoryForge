@@ -15,7 +15,7 @@ const {handleInputSearch,handlesubmit,inputSearch} = props;
             <Form.Control type="text" placeholder="Inserisci il titolo del libro" value={inputSearch} onChange={(e) => handleInputSearch(e.target.value)} />
           </Col>
           <Col sm="2">
-            <Button type="submit" onClick={(e) => handlesubmit(e)}>Cerca</Button>
+            <Button type="submit" className='color-primary border border-none' onClick={(e) => handlesubmit(e)}>Cerca</Button>
           </Col>
         </Form.Group>
       </Form>
