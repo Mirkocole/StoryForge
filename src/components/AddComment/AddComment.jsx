@@ -7,7 +7,7 @@ export default function AddComment(props) {
     const [loading, setLoading] = useState(false);
     const [resultComment, setResultComment] = useState('');
     const [email, setEmail] = useState('');
-    const [rate, setRate] = useState(0);
+    const [rate, setRate] = useState(1);
     const [comment, setComment] = useState('');
     const API = 'https://striveschool-api.herokuapp.com/api/comments/';
     // Token di autenticazione API
