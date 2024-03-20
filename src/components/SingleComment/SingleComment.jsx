@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoIosStar } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
+import { MdOutlineEditNote } from "react-icons/md";
 import './SingleComment.css';
+import EditComment from '../EditComment/EditComment';
 
 export default function SingleComment({ comm, newRefresh }) {
 
@@ -10,6 +12,8 @@ export default function SingleComment({ comm, newRefresh }) {
     // Token di autenticazione API
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY0OWY0ZTdiZWEzMTAwMWEyZGYyYjgiLCJpYXQiOjE3MTA1MzAzODIsImV4cCI6MTcxMTczOTk4Mn0.fcccY5IbTKhtp-3jPKsl6gbngnrGCH4KhnXYQY6j6jA';
     const { _id,comment, author, createdAt, rate} = comm;
+
+    const [edit,setEdit] = useState(false);
 
     let star = [];
 
@@ -27,10 +31,10 @@ export default function SingleComment({ comm, newRefresh }) {
                 });
 
             if (res.ok) {
-                console.log('Eliminazione avvenuta con successo!');
+                
                 newRefresh();
             }else{
-                console.log('Eliminazione non avvenuta!');
+                
                 console.log(res.status);
 
             }
@@ -42,9 +46,12 @@ export default function SingleComment({ comm, newRefresh }) {
 
     return (
         <>
-            <div className='border p-3 my-2 shadow-sm rounded position-relative'>
+            <div className='border p-4 my-2 shadow-sm rounded position-relative'>
 
                 <MdDelete className='delete-button' onClick={deleteComment} />
+                <MdOutlineEditNote className='edit-button' onClick={()=>setEdit((prev)=> !prev)} />
+
+                {edit && <EditComment edit={edit} setEdit={setEdit} comm = {comm} newRefresh ={newRefresh}/>}
 
                 <p className='fw-bolder'> {comment} </p>
                 <p>Author: <b>{author}</b></p>

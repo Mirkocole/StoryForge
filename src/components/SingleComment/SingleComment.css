@@ -6,3 +6,12 @@
     font-size: 23px;
     color: rgb(206, 42, 42);
 }
+
+.edit-button{
+    position: absolute;
+    right: 18%;
+    top: 85%;
+    cursor: pointer;
+    font-size: 23px;
+    color: rgb(206, 176, 42);
+}
