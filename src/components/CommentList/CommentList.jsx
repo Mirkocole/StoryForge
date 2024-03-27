@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap';
 import SingleComment from '../SingleComment/SingleComment';
 import './CommentList.css';
+import { ThemeContext } from '../../context/ThemeContextProvider';
 
 export default function CommentList(props) {
 
@@ -16,6 +17,8 @@ export default function CommentList(props) {
     const [list, setList] = useState([]);
     const [loading, setLoading] = useState(false);
     const { bookasin ,refresh, newRefresh} = props;
+
+    const {theme} = useContext(ThemeContext)
 
     useEffect(() => {
 
@@ -62,7 +65,7 @@ export default function CommentList(props) {
 
    
     return (
-        <div className='comment-list'>
+        <div className={`bg-${theme} text-${theme === 'dark' ? 'light' : 'dark'} comment-list`}>
             {loading &&
                 <Spinner animation="border" role="status">
                     <span className="visually-hidden">Loading...</span>

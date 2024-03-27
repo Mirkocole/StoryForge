@@ -1,31 +1,43 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
-import CommentArea from '../CommentArea/CommentArea';
 import './SingleBook.css';
 import { ThemeContext } from '../../context/ThemeContextProvider';
+import { SelectedBookContext } from '../../context/SelectedBookContextProvider';
+import { useNavigate } from 'react-router-dom';
 
-function SingleBook({book}) {
+function SingleBook({book,details}) {
     
     const {theme} = useContext(ThemeContext);
+    const navigate = useNavigate();
     
-    const [selected,setSelected] = useState(false);
+    const {selected,setSelected} = useContext(SelectedBookContext);
     const [border,setBorder] = useState('none');
 
-    function hendleSelected(){
-        setSelected((e) => {
 
-            setBorder(!e ? 'danger' : 'none');
-            return !e
+    function hendleSelected(){
+
+        setBorder(selected === book.asin ? 'danger' : 'none');
+        setSelected((e) => {
+            return e ? '' : book.asin;
         });
 
         
     }
+
+
+    useEffect(()=>{
+       
+            setBorder(selected === book.asin ? 'danger' : 'none');
+        
+    },[selected])
+
+    
     
     return ( 
         <>
-            <Card style={{ height:'500px' }} className='my-3 border-4' border={selected ? 'danger' : 'none'} bg={theme} text={theme === 'dark' ? 'white' : 'dark'}>
+            <Card style={{ height:'500px' }} className='my-3 border-4' border={details ?? border} bg={theme} text={theme === 'dark' ? 'white' : 'dark'}>
                 <Card.Img variant="top" src={book.img} style={{height:'280px', objectFit:'contain', objectPosition:'center', cursor:'pointer'}} onClick={hendleSelected}/>
-                <Card.Body className='d-flex flex-column justify-content-between align-items-between'>
+                <Card.Body className='d-flex flex-column justify-content-between align-items-center'>
                     <div>
                     <Card.Title className='fs-6 text-ellipsis line-clamp'>{book.title}</Card.Title>
                     <Card.Text className='fw-bolder fs-6'>
@@ -35,10 +47,9 @@ function SingleBook({book}) {
                         {book.price.toFixed(2)}€
                     </Card.Text>
                     </div>
-                    <Button className='color-primary border border-none' onClick={hendleSelected}>Add to Cart</Button>
+                    {details ?? <Button className='color-primary border border-none' onClick={()=> navigate('/details/'+book.asin)}>Details</Button>}
                 </Card.Body>
             </Card>
-            {selected && <CommentArea bookasin = {book.asin} />}
         </>
      );
 }

@@ -25,7 +25,7 @@ function Gridcards({count, books}) {
                 <>
                     <Container className="my-5">
                     <h3 className={`text-${theme === 'dark' ? 'light' : 'dark'}`}>Categoria {books[0].category.toUpperCase()}</h3>
-                        <Row xs={1} md={3} lg={count}>
+                        <Row xs={1}  md={3} xl={4}>
                         {
                            maxBook.map((ele) => {
                               return <Col key ={ele.asin}>

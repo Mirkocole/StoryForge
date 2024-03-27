@@ -1,0 +1,20 @@
+.page404 {
+    min-height: 84.6vh;
+    height: 100%;
+    width: 100%;
+}
+
+.bg-img-light{
+
+    background-image: url('https://img.freepik.com/free-vector/404-error-lost-space-concept-illustration_114360-7891.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.bg-img-dark{
+
+    background-image: url('https://img.freepik.com/free-vector/404-error-template-flat-style_23-2147759380.jpg?t=st=1711479236~exp=1711482836~hmac=00da2bfd07e9a7345bb78eccfcd75bc822ede3808254f6077807fcb578694d6c&w=1740');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

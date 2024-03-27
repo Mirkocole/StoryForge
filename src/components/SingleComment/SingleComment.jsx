@@ -54,7 +54,7 @@ export default function SingleComment({ comm, newRefresh }) {
                 {edit && <EditComment edit={edit} setEdit={setEdit} comm = {comm} newRefresh ={newRefresh}/>}
 
                 <p className='fw-bolder'> {comment} </p>
-                <p>Author: <b>{author}</b></p>
+                <p className='overflow-wrap'>Author: <b>{author}</b></p>
                 <p>Rate:
                     {star.map((el) => <IoIosStar key={el} />)}
                 </p>

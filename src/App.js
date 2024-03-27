@@ -6,75 +6,43 @@ import historyBook from './json/books/history.json';
 import horrorBook from './json/books/horror.json';
 import romanceBook from './json/books/romance.json';
 import scifiBook from './json/books/scifi.json';
-import AllTheBooks from './components/AllTheBooks/AllTheBooks';
 import MyNav from './components/MyNav/MyNav';
 import Welcome from './components/Welcome/Welcome';
 import { Container } from 'react-bootstrap';
 import { useContext, useState } from 'react';
 import Footer from './components/Footer/Footer';
+import SelectedBookContextProvider from './context/SelectedBookContextProvider';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Homepage from './pages/Homepage/Homepage';
+import NotFound from './pages/NotFound/NotFound';
+import Details from './pages/Details/Details';
+import SearchContextProvider, { SearchContext } from './context/SearchContextProvider';
+
 
 
 function App() {
 
- const {theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
-  const books = {
-    fantasy: fantasyBook,
-    history: historyBook,
-    horror: horrorBook,
-    romance: romanceBook,
-    scifi: scifiBook,
-  }
-
-
-
-  const [fantasy, setFantasy] = useState(books.fantasy);
-  const [horror, setHorror] = useState(books.horror);
-  const [romance, setRomance] = useState(books.romance);
-  const [scifi, setScifi] = useState(books.scifi);
-  const [history, setHistory] = useState(books.history);
-
-
-  let allBooks = {
-    fantasy,
-    horror,
-    romance,
-    scifi,
-    history
-  }
-
-  const [inputSearch, setInputSearch] = useState('');
-
-  function handleInputSearch(value) {
-    setInputSearch(value);
-  }
-
-  function handlesubmit(e) {
-    let filtered;
-    e.preventDefault();
-    filtered = books.fantasy.filter((book) => book.title.toLowerCase().includes(inputSearch.toLowerCase()));
-    setFantasy(filtered);
-    filtered = books.romance.filter((book) => book.title.toLowerCase().includes(inputSearch.toLowerCase()));
-    setRomance(filtered);
-    filtered = books.horror.filter((book) => book.title.toLowerCase().includes(inputSearch.toLowerCase()));
-    setHorror(filtered);
-    filtered = books.scifi.filter((book) => book.title.toLowerCase().includes(inputSearch.toLowerCase()));
-    setScifi(filtered);
-    filtered = books.history.filter((book) => book.title.toLowerCase().includes(inputSearch.toLowerCase()));
-    setHistory(filtered);
-
-  }
+  const { inputSearch, handleInputSearch, handlesubmit, allBooks, books } = useContext(SearchContext);
 
   return (
-      <Container fluid className={`${theme === 'dark' ? 'bg-gradient':'bg-light'}  m-0 p-0 d-flex flex-column justify-content-center`}>
-        <MyNav books={books} handlesubmit={handlesubmit} handleInputSearch={handleInputSearch} inputSearch={inputSearch} />
-        <Welcome />
-        <Container className='pb-5'>
+    <BrowserRouter>
 
-          <AllTheBooks allBooks={allBooks} />
+      <SelectedBookContextProvider>
+        <Container fluid className={`${theme === 'dark' ? 'bg-gradient' : 'bg-light'}  m-0 p-0 d-flex flex-column justify-content-center`}>
+
+
+          <Routes>
+            <Route path='/' element={<Homepage allBooks={allBooks} />} />
+            <Route path='/details/:asin' element={<Details allBooks={allBooks} />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+
+
         </Container>
-        <Footer />
-      </Container>
+      </SelectedBookContextProvider>
+    </BrowserRouter>
   );
 }
 

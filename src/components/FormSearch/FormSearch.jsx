@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Form, Row,Col } from "react-bootstrap";
+import { SearchContext } from '../../context/SearchContextProvider';
 
-export default function FormSearch(props) {
+export default function FormSearch() {
 
-const {handleInputSearch,handlesubmit,inputSearch} = props;
+const {handleInputSearch,handlesubmit,inputSearch} = useContext(SearchContext);
 
 
 

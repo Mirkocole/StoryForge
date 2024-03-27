@@ -4,8 +4,8 @@
 }
 
 .bg-gradient {
-  background: rgb(174,232,238)!important;
-background: radial-gradient(circle, rgb(174, 232, 238) 0%, rgba(36,63,89,1) 100%)!important;
+  background: rgb(174, 232, 238) !important;
+  background: radial-gradient(circle, rgb(174, 232, 238) 0%, rgba(36, 63, 89, 1) 100%) !important;
   background-repeat: no-repeat;
   background-size: cover;
 }
