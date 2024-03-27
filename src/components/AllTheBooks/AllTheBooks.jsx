@@ -19,14 +19,14 @@ function AllTheBooks({ allBooks }) {
             {/* <FormSearch handlesubmit = {handlesubmit} handleInputSearch = {handleInputSearch} inputSearch = {inputSearch}/> */}
             <Container fluid>
                 <Row className="">
-                    <Col xs='7' md='9'>
+                    <Col xs='12' lg='9'>
                         <Gridcards count={4} books={fantasy} />
                         <Gridcards count={4} books={horror} />
                         <Gridcards count={4} books={romance} />
                         <Gridcards count={4} books={scifi} />
                         <Gridcards count={4} books={history} />
                     </Col>
-                    <Col xs='5' md='3' className={`border-none rounded p-0 my-3 position-relative ${!selected ? 'bg-'+theme : ''}`}>
+                    <Col xs='0' lg='3' className={`border-none rounded p-0 my-3 position-relative ${!selected ? 'bg-'+theme : ''}`}>
                         <CommentArea bookasin={selected}/>
                     </Col>
                 </Row>
