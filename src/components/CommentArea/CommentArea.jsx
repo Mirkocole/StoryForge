@@ -40,7 +40,7 @@ export default function CommentArea(props) {
         }
         {
             !bookasin && <div className='sticky-top p-3'>
-            <h4 className={`text-${theme === 'dark' ? 'light' : 'dark'}`}>Select a book to see it's commets!</h4>
+            <h4 className={`text-${theme === 'dark' ? 'light' : 'dark'} d-none`}>Seleziona un libro per visualizzare i suoi commenti.</h4>
         </div>
         }
         </>

@@ -46,6 +46,8 @@
   }
 }
 
-.bg-principal{
-  background-color: #b6d3e3;
+.bg-principal {
+  /* background-color: #e3d8b6; */
+  background: rgb(223,230,223);
+background: linear-gradient(180deg, rgba(223,230,223,0.9990371148459384) 30%, rgba(190,205,202,1) 100%);
 }

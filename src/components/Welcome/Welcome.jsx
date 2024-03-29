@@ -19,8 +19,12 @@ function Welcome() {
             {/* {show && <Alert key= 'success' variant='success' className='w-75 mx-auto'>Benvenuto su StoryForge! </Alert>}
             {hideMessage()} */}
 
-            <Container fluid className='jumbotron d-flex flex-column justify-content-center '>
+            <Container fluid className='jumbotron d-flex flex-column justify-content-center ' data-testid='welcome'>
+                <Container>
+
                 <h1 className={`text-light text-center`}>Welcome to <b>StoryForge</b></h1>
+                <p className='text-light text-center'>Siamo entusiasti di darti il benvenuto  nel nostro mondo di storie e avventure. <br />Speriamo che tu trovi ispirazione, scoperta e connessione tra le pagine dei nostri libri. <br />Sii pronto a immergerti in nuovi mondi e ad esplorare il potere delle parole.<br /> Buona lettura! 📚✨</p>
+                </Container>
             </Container>
         </>
     );

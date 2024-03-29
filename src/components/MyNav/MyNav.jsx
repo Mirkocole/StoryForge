@@ -35,7 +35,7 @@ function MyNav({hiddenSearch}) {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-        <Welcome />
+        {hiddenSearch ?? <Welcome />} 
         </>
     );
 }

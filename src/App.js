@@ -16,7 +16,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage/Homepage';
 import NotFound from './pages/NotFound/NotFound';
 import Details from './pages/Details/Details';
-import SearchContextProvider, { SearchContext } from './context/SearchContextProvider';
+import { SearchContext } from './context/SearchContextProvider';
+import FilterBookContextProvider from './context/FilterBookContextProvider';
 
 
 
@@ -24,24 +25,27 @@ function App() {
 
   const { theme } = useContext(ThemeContext);
 
-  const { inputSearch, handleInputSearch, handlesubmit, allBooks, books } = useContext(SearchContext);
+  const { allBooks } = useContext(SearchContext);
 
   return (
     <BrowserRouter>
 
-      <SelectedBookContextProvider>
-        <Container fluid className={`${theme === 'dark' ? 'bg-gradient' : 'bg-light'}  m-0 p-0 d-flex flex-column justify-content-center`}>
+      <FilterBookContextProvider>
+
+        <SelectedBookContextProvider>
+          <Container fluid className={`${theme === 'dark' ? 'bg-gradient' : 'bg-light'}  m-0 p-0 d-flex flex-column justify-content-center`}>
 
 
-          <Routes>
-            <Route path='/' element={<Homepage allBooks={allBooks} />} />
-            <Route path='/details/:asin' element={<Details allBooks={allBooks} />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
+            <Routes>
+              <Route path='/' element={<Homepage allBooks={allBooks} />} />
+              <Route path='/details/:asin' element={<Details allBooks={allBooks} />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
 
 
-        </Container>
-      </SelectedBookContextProvider>
+          </Container>
+        </SelectedBookContextProvider>
+      </FilterBookContextProvider>
     </BrowserRouter>
   );
 }
