@@ -25,7 +25,7 @@ function App() {
 
   const { theme } = useContext(ThemeContext);
 
-  const { allBooks } = useContext(SearchContext);
+
 
   return (
     <BrowserRouter>
@@ -37,8 +37,8 @@ function App() {
 
 
             <Routes>
-              <Route path='/' element={<Homepage allBooks={allBooks} />} />
-              <Route path='/details/:asin' element={<Details allBooks={allBooks} />} />
+              <Route path='/' element={<Homepage />} />
+              <Route path='/details/:asin' element={<Details />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
 

@@ -31,7 +31,7 @@ export default function CommentArea(props) {
         <>
         {
             bookasin && 
-        <div className={`p-3 border rounded bg-${theme} text-${theme === 'dark' ? 'light' : 'dark'} d-flex flex-column justify-content-between sticky-top`}>
+        <div className={`p-3 border rounded bg-${theme} text-${theme === 'dark' ? 'light' : 'dark'} d-flex flex-column justify-content-between sticky-top`} data-testid='commentArea'>
             <h4 className='text-center d-inline-block'>Comments</h4>
             <Button className='w-auto color-primary border border-none mb-4' onClick={handleShow}>New Comment</Button>
             <CommentList bookasin={bookasin} refresh={refresh} newRefresh={newRefresh} />

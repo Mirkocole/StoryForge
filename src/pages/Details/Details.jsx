@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { Container } from 'react-bootstrap';
 import SingleBook from '../../components/SingleBook/SingleBook';
 import CommentArea from '../../components/CommentArea/CommentArea';
 import MyNav from '../../components/MyNav/MyNav';
 import Footer from '../../components/Footer/Footer';
+import { SearchContext } from '../../context/SearchContextProvider';
 
-export default function Details(props) {
-
+export default function Details() {
+    
+const {allBooks} = useContext(SearchContext);
     const { asin } = useParams();
-    const { allBooks } = props;
     let resBook = null;
 
 

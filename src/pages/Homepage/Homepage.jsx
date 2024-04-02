@@ -4,16 +4,15 @@ import AllTheBooks from '../../components/AllTheBooks/AllTheBooks';
 import MyNav from '../../components/MyNav/MyNav';
 import Footer from '../../components/Footer/Footer';
 
-export default function Homepage(props) {
-const {allBooks} = props;
+export default function Homepage() {
 
   return (
     <>
-        <MyNav />
-        <Container fluid>
-            <AllTheBooks allBooks={allBooks}/>
-        </Container>
-        <Footer />
+      <MyNav />
+      <Container fluid>
+        <AllTheBooks />
+      </Container>
+      <Footer />
     </>
   )
 }

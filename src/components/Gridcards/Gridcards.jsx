@@ -23,12 +23,12 @@ function Gridcards({count, books}) {
             
             return ( 
                 <>
-                    <Container className="my-5">
-                    <h3 className={`text-${theme === 'dark' ? 'light' : 'dark'}`}>Categoria {books[0].category.toUpperCase()}</h3>
+                    <Container className="my-5" data-testid="test2">
+                    <h3 className={`text-${theme === 'dark' ? 'light' : 'dark'}`} >Categoria {books[0].category.toUpperCase()}</h3>
                         <Row xs={2}  md={3} xl={4} >
                         {
                            maxBook.map((ele) => {
-                              return <Col key ={ele.asin}>
+                              return <Col key ={ele.asin} data-testid="test3">
                                         <SingleBook book={ele}/>
                                     </Col>
                                 

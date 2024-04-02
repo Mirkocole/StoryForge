@@ -6,12 +6,13 @@ import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../context/ThemeContextProvider";
 import FilterBooks from "../FilterBooks/FilterBooks";
 import { FilterBookContext } from "../../context/FilterBookContextProvider";
+import { SearchContext } from "../../context/SearchContextProvider";
 
 
-function AllTheBooks({ allBooks }) {
+function AllTheBooks() {
 
 
-    const { fantasy, horror, romance, scifi, history } = allBooks;
+    const {allBooks} = useContext(SearchContext);
     const {selected} = useContext(SelectedBookContext);
     const {theme} = useContext(ThemeContext);
 
@@ -19,8 +20,13 @@ function AllTheBooks({ allBooks }) {
 
     useEffect(()=>{
 
-        console.log(category)
+        // console.log(allBooks)
     },[category,countBook])
+
+    // let test = 'horror'
+    //     console.log(allBooks[test])
+        
+    
 
 
     return (
@@ -29,10 +35,11 @@ function AllTheBooks({ allBooks }) {
             <Container fluid>
                 <Row className="justify-content-center">
                     <Col xs='12' lg='9'>
-                    <FilterBooks/>
+                    <FilterBooks />
                     {category && category.map((el,index)=>{
-                       return <Gridcards key={index} count={countBook} books={allBooks[el]} />
+                       return <Gridcards key={index} count={countBook} books={allBooks[el]}/>
                     })}
+                    {/* <Gridcards count={countBook} books={allBooks.fantasy}/> */}
                     </Col>
                     <Col xs='0' lg='3' className={`border-none rounded p-0 my-3 position-relative ${!selected ? 'd-none':'' }`}>
                         <CommentArea bookasin={selected}/>

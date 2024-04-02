@@ -35,11 +35,11 @@ function SingleBook({book,details}) {
     
     return ( 
         <>
-            <Card style={{ height:'500px' }} className='my-3 border-4' border={details ?? border} bg={theme === 'dark' ? theme : 'principal'} text={theme === 'dark' ? 'white' : 'dark'}>
-                <Card.Img variant="top" src={book.img} style={{height:'280px', objectFit:'contain', objectPosition:'center', cursor:'pointer'}} onClick={hendleSelected}/>
+            <Card style={{ height:'500px' }} className='my-3 border-4' border={details ?? border} bg={theme === 'dark' ? theme : 'principal'} text={theme === 'dark' ? 'white' : 'dark'} data-testid='card-book'>
+                <Card.Img variant="top" src={book.img} style={{height:'280px', objectFit:'contain', objectPosition:'center', cursor:'pointer'}} onClick={hendleSelected} data-testid="imageBook"/>
                 <Card.Body className='d-flex flex-column justify-content-between align-items-center'>
                     <div>
-                    <Card.Title className='fs-6 text-ellipsis line-clamp'>{book.title}</Card.Title>
+                    <Card.Title className='fs-6 text-ellipsis line-clamp' data-testid='titleBook'>{book.title}</Card.Title>
                     <Card.Text className='fw-bolder fs-6'>
                        Category: {book.category}
                     </Card.Text>
